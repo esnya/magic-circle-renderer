@@ -1,0 +1,30 @@
+$foregroundColor = rgba(200, 200, 255, 0.99)
+$bloomColor = rgba(0, 0, 255, 1)
+
+.outerContainer
+    transform: translate3d(0, 0, 0)
+
+.innerContainer
+    transform: translate(256px, 256px)
+
+.background
+    fill: #000000
+    stroke: none
+
+.foreground
+    fill: none
+    stroke: $foregroundColor
+    stroke-width: 2px
+
+    text
+        fill: $foregroundColor
+        stroke: none
+
+.bloom
+    fill: none
+    stroke: $bloomColor
+    stroke-width: 4px
+    filter: url(#filter-bloom)
+
+    text
+        fill: $bloomColor
