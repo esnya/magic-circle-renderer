@@ -61,7 +61,7 @@ export default {
     output: {
         path: path.join(__dirname, 'public/assets'),
         publicPath: '/assets/',
-        filename: DEBUG ? '[name].js' : '[name].min.js',
+        filename: '[name].js',
     },
     plugins: [
         new FlowtypePlugin(),
