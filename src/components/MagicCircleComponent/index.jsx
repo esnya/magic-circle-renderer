@@ -4,10 +4,12 @@ import Component, { ComponentTypes } from '../../models/Component';
 import Circle from './Circle';
 import CircleText from './CircleText';
 import Hexagram from './Hexagram';
+import Pentagram from './Pentagram';
 
 const ComponentTable = {
     [ComponentTypes.CIRCLE]: Circle,
     [ComponentTypes.CIRCLE_TEXT]: CircleText,
+    [ComponentTypes.PENTAGRAM]: Pentagram,
     [ComponentTypes.HEXAGRAM]: Hexagram,
 };
 
