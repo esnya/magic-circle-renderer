@@ -29,7 +29,7 @@ store.dispatch(Actionsctions.update(id, 'rotationDirection', 'reverse'));
 id = generate();
 store.dispatch(Actionsctions.create(id, ComponentTypes.CIRCLE_TEXT));
 store.dispatch(Actionsctions.update(id, 'radius', 0.69));
-store.dispatch(Actionsctions.update(id, 'fontSize', 25));
+store.dispatch(Actionsctions.update(id, 'fontSize', 23));
 store.dispatch(Actionsctions.update(id, 'rotationDirection', 'reverse'));
 store.dispatch(Actionsctions.update(id, 'text', [
     'ᚺ ᛖ ᛚ ᛚ ᛟ ᚹ ᛟ ᚱ ᛚ ᛞ ᚺ ᛖ ᛚ ᛚ ᛟ ᚹ ᛟ ᚱ ᛚ ᛞ',

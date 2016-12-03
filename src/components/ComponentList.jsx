@@ -7,6 +7,7 @@ import ComponentListItem from './ComponentListItem';
 
 export type PropTypes = {
     componentList: Array<Component>,
+    selectedComponentId: ?string,
     onCreateComponent: (id: string, type: ComponentType) => void,
     onEditComponent: (id: string) => void,
     onRemoveComponent: (id: string) => void,
@@ -14,6 +15,7 @@ export type PropTypes = {
 const ComponentList = (props: PropTypes) => {
     const {
         componentList,
+        selectedComponentId,
         onCreateComponent,
         onEditComponent,
         onRemoveComponent,
@@ -23,6 +25,7 @@ const ComponentList = (props: PropTypes) => {
         <ComponentListItem
             key={component.id}
             component={component}
+            isActive={component.id === selectedComponentId}
             onEdit={onEditComponent}
             onRemove={onRemoveComponent}
         />

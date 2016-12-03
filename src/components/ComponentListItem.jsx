@@ -13,12 +13,14 @@ const ExceptedKeys = [
 
 export type PropTypes = {
     component: Component,
+    isActive: boolean,
     onEdit: (id: string) => void,
     onRemove: (id: string) => void,
 };
 const ComponentListItem = (props: PropTypes) => {
     const {
         component,
+        isActive,
         onEdit,
         onRemove,
     } = props;
@@ -28,7 +30,12 @@ const ComponentListItem = (props: PropTypes) => {
 
     return (
         <tr>
-            <td><ComponentEditButton onTouchTap={() => onEdit(component.id)} /></td>
+            <td>
+                <ComponentEditButton
+                    isActive={isActive}
+                    onTouchTap={() => onEdit(component.id)}
+                />
+            </td>
             <td>{typeLabel}</td>
             <td>{component.getAttribute('radius') || ''}</td>
             <td>{component.getAttribute('rotation') || ''}</td>

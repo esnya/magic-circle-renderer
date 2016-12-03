@@ -1,7 +1,17 @@
 import React from 'react';
 import IconButton from './IconButton';
 
-const ComponentEditButton = (props: Object) => (
-    <IconButton name="pencil-square-o" {...props} />
-);
+export type PropTypes = {
+    isActive: boolean,
+};
+const ComponentEditButton = (props: PropTypes) => {
+    const {
+        isActive,
+        ...others
+    } = props;
+
+    return (
+        <IconButton isActive={isActive} name="pencil-square-o" {...others} />
+    );
+};
 export default ComponentEditButton;

@@ -6,9 +6,7 @@ const OverlayPanel = () => (
     <div className={Styles.overlayPanel}>
         <LeftPanel />
         <div />
-        <div>
-            Right
-        </div>
+        <div />
     </div>
 );
 export default OverlayPanel;
