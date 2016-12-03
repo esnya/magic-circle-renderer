@@ -3,16 +3,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as Styles from '../styles/app.styl';
 import Canvas from './Canvas';
+import OverlayPanel from './OverlayPanel';
 
 type PropTypes = {
-    itemList: Array,
+    componentList: Array,
 };
-const App = (props: PropTypes) => (
-    <div className={Styles.app}>
-        <Canvas itemList={props.itemList} />
-    </div>
-);
+const App = (props: PropTypes) => {
+    const {
+        componentList,
+    } = props;
 
+    return (
+        <div className={Styles.app}>
+            <div className={Styles.inner}>
+                <Canvas componentList={componentList} />
+            </div>
+            <OverlayPanel />
+        </div>
+    );
+};
 export default connect(
-    state => pick(state, 'itemList'),
+    state => pick(state, 'componentList'),
 )(App);

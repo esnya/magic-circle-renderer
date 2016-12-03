@@ -1,8 +1,8 @@
 import React from 'react';
-import Item from '../../Item';
+import Component from '../../models/Component';
 
 export type PropTypes = {
-    item: Item,
+    component: Component,
     className: ?string,
     style: ?Object,
 };
@@ -32,11 +32,11 @@ for (let i = 0; i < 4; i += 1) {
 
 const Pentagram = (props: PropTypes) => {
     const {
-        item,
+        component,
         className,
         style,
     } = props;
-    const radius = item.getAttribute('radius') || 0.5;
+    const radius = component.getAttribute('radius') || 0.5;
 
     const path = points
         .map(point => point.map(x => x * radius * 256))

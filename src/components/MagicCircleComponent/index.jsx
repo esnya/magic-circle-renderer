@@ -1,30 +1,30 @@
 import React from 'react';
 import { rotation } from '../../styles/rotation.styl';
-import Item, { ItemTypes } from '../../Item';
+import Component, { ComponentTypes } from '../../models/Component';
 import Circle from './Circle';
 import CircleText from './CircleText';
 import Pentagram from './Pentagram';
 
-const ComponentTypes = {
-    [ItemTypes.CIRCLE]: Circle,
-    [ItemTypes.CIRCLE_TEXT]: CircleText,
-    [ItemTypes.PENTAGRAM]: Pentagram,
+const ComponentTable = {
+    [ComponentTypes.CIRCLE]: Circle,
+    [ComponentTypes.CIRCLE_TEXT]: CircleText,
+    [ComponentTypes.PENTAGRAM]: Pentagram,
 };
 
 export type PropTypes = {
-    item: Item,
+    component: Component,
 };
 
 const MagicCircleComponent = (props: PropTypes) => {
     const {
-        item,
+        component,
     } = props;
 
-    const ChildComponent = ComponentTypes[item.type];
-    if (!ChildComponent) throw new Error(`Unsupported Component Type: ${item.type}`);
+    const ChildComponent = ComponentTable[component.type];
+    if (!ChildComponent) throw new Error(`Unsupported Component Type: ${component.type}`);
 
-    const rot = item.getAttribute('rotation');
-    const rotDir = item.getAttribute('rotationDirection');
+    const rot = component.getAttribute('rotation');
+    const rotDir = component.getAttribute('rotationDirection');
 
     const className = rot ? rotation : null;
 
@@ -34,7 +34,7 @@ const MagicCircleComponent = (props: PropTypes) => {
     } : null;
 
     return (
-        <ChildComponent className={className} style={style} item={item} />
+        <ChildComponent className={className} style={style} component={component} />
     );
 };
 export default MagicCircleComponent;

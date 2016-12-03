@@ -1,6 +1,7 @@
 /* eslint import/no-extraneous-dependencies: off */
 
 import FlowtypePlugin from 'flowtype-loader/plugin';
+import nib from 'nib';
 import path from 'path';
 import webpack from 'webpack';
 import WebpackNotifierPlugin from 'webpack-notifier';
@@ -76,5 +77,9 @@ export default {
             '.js',
             '.jsx',
         ],
+    },
+    stylus: {
+        use: [nib()],
+        import: ['~nib/lib/nib/index.styl'],
     },
 };

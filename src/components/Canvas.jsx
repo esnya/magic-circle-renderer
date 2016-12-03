@@ -1,26 +1,26 @@
 import React from 'react';
 import * as Styles from '../styles/canvas.styl';
-import Item from '../Item';
+import Component from '../models/Component';
 import BloomFilter from './BloomFilter';
 import MagicCircleComponent from './MagicCircleComponent';
 import MagicCircleDef from './MagicCircleDef';
 
 export type PropTypes = {
-    itemList: Array<Item>
+    componentList: Array<Component>
 };
 const Canvas = (props: PropTypes) => {
     const {
-        itemList,
+        componentList,
     } = props;
 
-    const defs = itemList.map(item => (
-        <MagicCircleDef key={item.id} item={item} />
+    const defs = componentList.map(component => (
+        <MagicCircleDef key={component.id} component={component} />
     ));
-    const bloom = itemList.map(item => (
-        <MagicCircleComponent key={item.id} item={item} />
+    const bloom = componentList.map(component => (
+        <MagicCircleComponent key={component.id} component={component} />
     ));
-    const foreground = itemList.map(item => (
-        <MagicCircleComponent key={item.id} item={item} />
+    const foreground = componentList.map(component => (
+        <MagicCircleComponent key={component.id} component={component} />
     ));
 
     return (

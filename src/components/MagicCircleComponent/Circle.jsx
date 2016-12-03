@@ -1,15 +1,15 @@
 import React from 'react';
-import Item from '../../Item';
+import Component from '../../models/Component';
 
 export type PropTypes = {
-    item: Item,
+    component: Component,
 };
 
 const Circle = (props: PropTypes) => {
     const {
-        item,
+        component,
     } = props;
-    const radius = item.getAttribute('radius') || 0.5;
+    const radius = component.getAttribute('radius') || 0.5;
 
     return <circle r={radius * 256} />;
 };

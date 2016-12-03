@@ -1,23 +1,23 @@
 import React from 'react';
-import Item, { ItemTypes } from '../../Item';
+import Component, { ComponentTypes } from '../../models/Component';
 import CircleText from './CircleText';
 
-const ComponentTypes = {
-    [ItemTypes.CIRCLE_TEXT]: CircleText,
+const ComponentTable = {
+    [ComponentTypes.CIRCLE_TEXT]: CircleText,
 };
 
 export type PropTypes = {
-    item: Item,
+    component: Component,
 };
 
 const MagicCircleDef = (props: PropTypes) => {
     const {
-        item,
+        component,
     } = props;
 
-    const ChildComponent = ComponentTypes[item.type];
+    const ChildComponent = ComponentTable[component.type];
     if (!ChildComponent) return null;
 
-    return <ChildComponent item={item} />;
+    return <ChildComponent component={component} />;
 };
 export default MagicCircleDef;

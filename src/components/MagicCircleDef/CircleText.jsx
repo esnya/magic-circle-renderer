@@ -1,19 +1,19 @@
 import React from 'react';
-import Item from '../../Item';
+import Component from '../../models/Component';
 
-export function getId(item: Item) {
-    return `def-${item.id}`;
+export function getId(component: Component) {
+    return `def-${component.id}`;
 }
 
 export type PropTypes = {
-    item: Item,
+    component: Component,
 };
 
 const CircleText = (props: PropTypes) => {
     const {
-        item,
+        component,
     } = props;
-    const r = (item.getAttribute('radius') || 0.5) * 256;
+    const r = (component.getAttribute('radius') || 0.5) * 256;
 
     const path = [
         ['M', 0, -r],
@@ -21,6 +21,6 @@ const CircleText = (props: PropTypes) => {
         ['A', r, r, 180, 0, 1, 0, -r],
     ].map(a => a.join(' ')).join(' ');
 
-    return <path id={getId(item)} d={path} />;
+    return <path id={getId(component)} d={path} />;
 };
 export default CircleText;

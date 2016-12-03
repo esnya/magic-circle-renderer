@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
-import * as Actions from '../actions/item';
-import Item from '../Item';
+import * as Actions from '../actions/Component';
+import Component from '../models/Component';
 
 export default handleActions({
     [Actions.CREATE]: (state, { payload }) => {
@@ -11,7 +11,7 @@ export default handleActions({
 
         return [
             ...state,
-            new Item(id, type),
+            new Component(id, type),
         ];
     },
 
@@ -22,8 +22,8 @@ export default handleActions({
             value,
         } = payload;
 
-        return state.map(item => (
-            item.id === id ? item.update(key, value) : item
+        return state.map(component => (
+            component.id === id ? component.update(key, value) : component
         ));
     },
 
@@ -32,6 +32,6 @@ export default handleActions({
             id,
         } = payload;
 
-        return state.filter(item => item.id !== id);
+        return state.filter(component => component.id !== id);
     },
 }, []);

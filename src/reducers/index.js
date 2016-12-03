@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import itemList from './itemList';
+import componentList from './componentList';
 
 export default combineReducers({
-    itemList,
+    componentList,
 });

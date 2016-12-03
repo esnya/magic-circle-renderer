@@ -1,9 +1,15 @@
-export type ItemType = string;
+export type ComponentType = string;
 
-export const ItemTypes = {
-    CIRCLE: ('ITEM_TYPE_CIRCLE' : ItemType),
-    CIRCLE_TEXT: ('ITEM_TYPE_CIRCLE_TEXT' : ItemType),
-    PENTAGRAM: ('ITEM_TYPE_PENTAGRAM' : ItemType),
+export const ComponentTypes = {
+    CIRCLE: ('COMPONENT_TYPE_CIRCLE' : ComponentType),
+    CIRCLE_TEXT: ('COMPONENT_TYPE_CIRCLE_TEXT' : ComponentType),
+    PENTAGRAM: ('COMPONENT_TYPE_PENTAGRAM' : ComponentType),
+};
+
+export const ComponentTypeLabels = {
+    [ComponentTypes.CIRCLE]: '円',
+    [ComponentTypes.CIRCLE_TEXT]: 'テキスト(円)',
+    [ComponentTypes.PENTAGRAM]: '五芒星',
 };
 
 const PrivateKeys = {
@@ -12,8 +18,8 @@ const PrivateKeys = {
     data: Symbol('data'),
 };
 
-export default class Item {
-    constructor(id: string, type: ItemType, data = {}) {
+export default class Component {
+    constructor(id: string, type: ComponentType, data = {}) {
         this[PrivateKeys.id] = id;
         this[PrivateKeys.type] = type;
         this[PrivateKeys.data] = data;
@@ -33,8 +39,8 @@ export default class Item {
         return this[PrivateKeys.data][key];
     }
 
-    update(key: string, value: any): Item {
-        return new Item(
+    update(key: string, value: any): Component {
+        return new Component(
             this[PrivateKeys.id],
             this[PrivateKeys.type],
             {

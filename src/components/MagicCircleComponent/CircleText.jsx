@@ -1,25 +1,25 @@
 import React from 'react';
-import Item from '../../Item';
+import Component from '../../models/Component';
 import { getId } from '../MagicCircleDef/CircleText';
 
 export type PropTypes = {
-    item: Item,
+    component: Component,
     className: ?string,
     style: ?Object,
 };
 
 const Circle = (props: PropTypes) => {
     const {
-        item,
+        component,
         className,
         style,
     } = props;
-    const text = item.getAttribute('text') || '';
-    const fontSize = item.getAttribute('fontSize');
+    const text = component.getAttribute('text') || '';
+    const fontSize = component.getAttribute('fontSize');
 
     return (
         <text className={className} fontSize={fontSize} style={style}>
-            <textPath xlinkHref={`#${getId(item)}`}>{text}</textPath>
+            <textPath xlinkHref={`#${getId(component)}`}>{text}</textPath>
         </text>
     );
 };
