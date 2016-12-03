@@ -16,12 +16,12 @@ store.dispatch(Actionsctions.create(id, ComponentTypes.CIRCLE));
 store.dispatch(Actionsctions.update(id, 'radius', 0.325));
 
 id = generate();
-store.dispatch(Actionsctions.create(id, ComponentTypes.PENTAGRAM));
+store.dispatch(Actionsctions.create(id, ComponentTypes.HEXAGRAM));
 store.dispatch(Actionsctions.update(id, 'radius', 0.65));
 store.dispatch(Actionsctions.update(id, 'rotation', 20));
 
 id = generate();
-store.dispatch(Actionsctions.create(id, ComponentTypes.PENTAGRAM));
+store.dispatch(Actionsctions.create(id, ComponentTypes.HEXAGRAM));
 store.dispatch(Actionsctions.update(id, 'radius', 0.325));
 store.dispatch(Actionsctions.update(id, 'rotation', 20));
 store.dispatch(Actionsctions.update(id, 'rotationDirection', 'reverse'));

@@ -30,7 +30,7 @@ for (let i = 0; i < 4; i += 1) {
     ]);
 }
 
-const Pentagram = (props: PropTypes) => {
+const Hexagram = (props: PropTypes) => {
     const {
         component,
         className,
@@ -45,4 +45,4 @@ const Pentagram = (props: PropTypes) => {
 
     return <path className={className} d={path} style={style} />;
 };
-export default Pentagram;
+export default Hexagram;

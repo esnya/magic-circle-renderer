@@ -3,13 +3,13 @@ export type ComponentType = string;
 export const ComponentTypes = {
     CIRCLE: ('COMPONENT_TYPE_CIRCLE' : ComponentType),
     CIRCLE_TEXT: ('COMPONENT_TYPE_CIRCLE_TEXT' : ComponentType),
-    PENTAGRAM: ('COMPONENT_TYPE_PENTAGRAM' : ComponentType),
+    HEXAGRAM: ('COMPONENT_TYPE_HEXAGRAM' : ComponentType),
 };
 
 export const ComponentTypeLabels = {
     [ComponentTypes.CIRCLE]: '円',
     [ComponentTypes.CIRCLE_TEXT]: 'テキスト(円)',
-    [ComponentTypes.PENTAGRAM]: '五芒星',
+    [ComponentTypes.HEXAGRAM]: '六芒星',
 };
 
 const PrivateKeys = {
