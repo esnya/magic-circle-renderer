@@ -29,7 +29,7 @@ const ComponentEditor = (props: PropTypes) => {
                     value={value * 100}
                     onChange={e => onUpdate(component.id, attributeKey, +e.target.value / 100)}
                 />
-                <label htmlFor={id}>{value}</label>
+                <label htmlFor={id}>{value || 0.5}</label>
             </dd>
         );
 
@@ -41,10 +41,10 @@ const ComponentEditor = (props: PropTypes) => {
                     type="range"
                     max={120}
                     min={0}
-                    value={value}
+                    value={value || 0}
                     onChange={e => onUpdate(component.id, attributeKey, +e.target.value)}
                 />
-                <label htmlFor={id}>{value}</label>
+                <label htmlFor={id}>{value || 0}</label>
             </dd>
         );
 
@@ -70,10 +70,10 @@ const ComponentEditor = (props: PropTypes) => {
                     type="range"
                     max={120}
                     min={0}
-                    value={value}
+                    value={value || 0}
                     onChange={e => onUpdate(component.id, attributeKey, +e.target.value)}
                 />
-                <label htmlFor={id}>{value}</label>
+                <label htmlFor={id}>{value || 0}</label>
             </dd>
         );
 
@@ -82,7 +82,7 @@ const ComponentEditor = (props: PropTypes) => {
             <dd>
                 <textarea
                     rows={4}
-                    value={value}
+                    value={value || ''}
                     onChange={e => onUpdate(component.id, attributeKey, e.target.value)}
                 />
             </dd>
