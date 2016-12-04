@@ -1,2 +1,2 @@
 import './render';
-import './test';
+import './defaultComponents';

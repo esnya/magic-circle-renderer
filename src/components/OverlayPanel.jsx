@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Styles from '../styles/panel.styl';
 import LeftPanel from './LeftPanel';
+import RightPanel from './RightPanel';
 
 export type PropTypes = {
     isVisible: boolean,
@@ -20,7 +21,7 @@ const OverlayPanel = (props: PropTypes) => {
         <div className={className}>
             <LeftPanel />
             <div />
-            <div />
+            <RightPanel />
         </div>
     );
 };

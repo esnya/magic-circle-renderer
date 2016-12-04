@@ -6,11 +6,15 @@ import MagicCircleComponent from './MagicCircleComponent';
 import MagicCircleDef from './MagicCircleDef';
 
 export type PropTypes = {
-    componentList: Array<Component>
+    componentList: Array<Component>,
+    angle: ?number,
+    perspective: ?number,
 };
 const Canvas = (props: PropTypes) => {
     const {
         componentList,
+        angle,
+        perspective,
     } = props;
 
     const defs = componentList.map(component => (
@@ -23,13 +27,20 @@ const Canvas = (props: PropTypes) => {
         <MagicCircleComponent key={component.id} component={component} />
     ));
 
+    const outerStyle = {
+        perspective: perspective ? `${perspective}cm` : null,
+    };
+    const innerStyle = {
+        transform: angle ? `rotateX(${angle}deg)` : null,
+    };
+
     return (
         <svg width={512} height={512}>
             <BloomFilter />
             <defs>{defs}</defs>
-            <g className={Styles.outerContainer}>
+            <g className={Styles.outerContainer} style={outerStyle}>
                 <rect className={Styles.background} width={512} height={512} />
-                <g className={Styles.innerContainer}>
+                <g className={Styles.innerContainer} style={innerStyle}>
                     <g className={Styles.bloom}>
                         {bloom}
                     </g>

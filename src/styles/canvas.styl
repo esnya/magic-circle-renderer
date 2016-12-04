@@ -2,10 +2,9 @@ $foregroundColor = rgba(200, 200, 255, 0.99)
 $bloomColor = rgba(0, 0, 255, 1)
 
 .outerContainer
-    transform: translate3d(0, 0, 0)
-
-.innerContainer
-    transform: translate(256px, 256px)
+    transform: translate3d(256px, 256px, 0)
+    transform-origin: 50% 50%
+    perspective-origin: left center
 
 .background
     fill: #000000
