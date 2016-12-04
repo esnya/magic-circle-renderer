@@ -10,17 +10,33 @@ export type PropTypes = {
     viewAttributes: ViewAttributes,
     onUpdateAngle: (angle: number) => void,
     onUpdatePerspective: (perspective: number) => void,
+    onUpdateScale: (scale: number) => void,
 };
 const RightPanel = (props: PropTypes) => {
     const {
         viewAttributes,
         onUpdateAngle,
         onUpdatePerspective,
+        onUpdateScale,
     } = props;
 
     return (
         <div>
             <dl className={Styles.dlForm}>
+                <dt>大きさ</dt>
+                <dd>
+                    <input
+                        id="view-attributes-scale"
+                        type="range"
+                        max={50}
+                        min={5}
+                        value={viewAttributes.scale * 10}
+                        onChange={e => onUpdateScale((+e.target.value) / 10)}
+                    />
+                    <label htmlFor="view-attributes-scale">
+                        {viewAttributes.scale}
+                    </label>
+                </dd>
                 <dt>角度</dt>
                 <dd>
                     <input
@@ -61,5 +77,6 @@ export default connect(
     dispatch => bindActionCreators({
         onUpdateAngle: ViewActions.updateAngle,
         onUpdatePerspective: ViewActions.updatePerspective,
+        onUpdateScale: ViewActions.updateScale,
     }, dispatch),
 )(RightPanel);

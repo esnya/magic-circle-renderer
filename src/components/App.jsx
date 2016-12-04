@@ -28,6 +28,7 @@ const App = (props: PropTypes) => {
                     angle={viewAttributes.angle}
                     componentList={componentList}
                     perspective={viewAttributes.perspective}
+                    scale={viewAttributes.scale}
                 />
             </div>
             <OverlayPanel isVisible={controlIsVisible} />

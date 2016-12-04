@@ -9,4 +9,7 @@ export default handleActions({
     [Actions.UPDATE_PERSPECTIVE]:
         (state, { payload }) =>
             state.updatePerspective(payload.perspective),
+    [Actions.UPDATE_SCALE]:
+        (state, { payload }) =>
+            state.updateScale(payload.scale),
 }, new ViewAttributes());

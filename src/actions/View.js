@@ -6,3 +6,7 @@ export const updateAngle = createAction(UPDATE_ANGLE, (angle: number) => ({ angl
 export const UPDATE_PERSPECTIVE = 'VIEW/UPDATE_PERSPECTIVE';
 export const updatePerspective =
     createAction(UPDATE_PERSPECTIVE, (perspective: number) => ({ perspective }));
+
+export const UPDATE_SCALE = 'VIEW/UPDATE_SCALE';
+export const updateScale =
+    createAction(UPDATE_SCALE, (scale: number) => ({ scale }));

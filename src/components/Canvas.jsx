@@ -9,12 +9,14 @@ export type PropTypes = {
     componentList: Array<Component>,
     angle: ?number,
     perspective: ?number,
+    scale: ?number,
 };
 const Canvas = (props: PropTypes) => {
     const {
         componentList,
         angle,
         perspective,
+        scale,
     } = props;
 
     const defs = componentList.map(component => (
@@ -27,6 +29,9 @@ const Canvas = (props: PropTypes) => {
         <MagicCircleComponent key={component.id} component={component} />
     ));
 
+    const svgStyle = {
+        transform: scale ? `scale(${scale})` : null,
+    };
     const outerStyle = {
         perspective: perspective ? `${perspective}cm` : null,
     };
@@ -35,7 +40,7 @@ const Canvas = (props: PropTypes) => {
     };
 
     return (
-        <svg width={512} height={512}>
+        <svg width={512} height={512} style={svgStyle}>
             <BloomFilter />
             <defs>{defs}</defs>
             <g className={Styles.outerContainer} style={outerStyle}>
