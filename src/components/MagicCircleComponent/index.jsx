@@ -25,18 +25,25 @@ const MagicCircleComponent = (props: PropTypes) => {
     const ChildComponent = ComponentTable[component.type];
     if (!ChildComponent) throw new Error(`Unsupported Component Type: ${component.type}`);
 
+    const angle = component.getAttribute('angle');
     const rot = component.getAttribute('rotation');
     const rotDir = component.getAttribute('rotationDirection');
 
     const className = rot ? rotation : null;
 
-    const style = rot ? {
+    const innerStyle = rot ? {
         animationDuration: `${rot}s`,
         animationDirection: rotDir || null,
     } : null;
 
+    const outerStyle = angle ? {
+        transform: `rotate(${angle}deg)`,
+    } : null;
+
     return (
-        <ChildComponent className={className} style={style} component={component} />
+        <g style={outerStyle}>
+            <ChildComponent className={className} style={innerStyle} component={component} />
+        </g>
     );
 };
 export default MagicCircleComponent;

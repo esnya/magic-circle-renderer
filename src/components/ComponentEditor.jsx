@@ -25,6 +25,13 @@ const ComponentEditor = (props: PropTypes) => {
             component={component}
             onUpdate={onUpdate}
         />,
+        <dt key="angle-label">角度</dt>,
+        <ComponentEditorField
+            key="angle-field"
+            attributeKey="angle"
+            component={component}
+            onUpdate={onUpdate}
+        />,
         <dt key="rotation-label">回転周期</dt>,
         <ComponentEditorField
             key="rotation-field"

@@ -33,6 +33,22 @@ const ComponentEditor = (props: PropTypes) => {
             </dd>
         );
 
+
+    case 'angle':
+        return (
+            <dd>
+                <input
+                    id={id}
+                    type="range"
+                    max={360}
+                    min={0}
+                    value={value || 0}
+                    onChange={e => onUpdate(component.id, attributeKey, +e.target.value)}
+                />
+                <label htmlFor={id}>{value || 0}</label>
+            </dd>
+        );
+
     case 'rotation':
         return (
             <dd>
@@ -68,10 +84,10 @@ const ComponentEditor = (props: PropTypes) => {
                 <input
                     id={id}
                     type="range"
-                    max={120}
+                    max={120 * 2}
                     min={0}
-                    value={value || 0}
-                    onChange={e => onUpdate(component.id, attributeKey, +e.target.value)}
+                    value={(value || 0) * 2}
+                    onChange={e => onUpdate(component.id, attributeKey, (+e.target.value) / 2)}
                 />
                 <label htmlFor={id}>{value || 0}</label>
             </dd>
